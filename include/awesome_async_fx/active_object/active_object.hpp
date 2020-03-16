@@ -5,7 +5,7 @@
 namespace _AASYNC_NAMESPACE_NAME
 {
 	
-class active_object : _AASYNC_NAMESPACE_NAME::basetype::base_active_object
+class active_object
 {
 
 };
