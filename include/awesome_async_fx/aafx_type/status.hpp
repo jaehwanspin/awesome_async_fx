@@ -1,7 +1,7 @@
 #ifndef _AASYNC_STATUS_HPP_
 #define _AASYNC_STATUS_HPP_
 
-#include "../../aasync_namespace.hpp"
+#include "../aasync_namespace.hpp"
 
 namespace _AASYNC_NAMESPACE_NAME
 {
