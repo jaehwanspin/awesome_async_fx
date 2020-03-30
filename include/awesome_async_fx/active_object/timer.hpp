@@ -10,30 +10,34 @@ namespace _AASYNC_NAMESPACE_NAME
 
 class timer
 {
+private:
+    std::chrono::time_point<std::chrono::system_clock> start_time;
+    std::chrono::time_point<std::chrono::system_clock> end_time;
+    bool is_running = false;
 public:
     void start()
     {
-        m_StartTime = std::chrono::system_clock::now();
-        m_bRunning = true;
+        this->start_time = std::chrono::system_clock::now();
+        this->is_running = true;
     }
     
     void stop()
     {
-        m_EndTime = std::chrono::system_clock::now();
-        m_bRunning = false;
+        this->end_time = std::chrono::system_clock::now();
+        this->is_running = false;
     }
     
-    double elapsedMilliseconds()
+    double elapsed_milliseconds()
     {
         std::chrono::time_point<std::chrono::system_clock> endTime;
         
-        if(m_bRunning)
+        if(this->is_running)
         {
-            endTime = std::chrono::system_clock::now();
+            this->end_time = std::chrono::system_clock::now();
         }
         else
         {
-            endTime = m_EndTime;
+            this->end_time = this->end_time;
         }
         
         return std::chrono::duration_cast<std::chrono::milliseconds>(
@@ -43,13 +47,8 @@ public:
     
     double elapsedSeconds()
     {
-        return elapsedMilliseconds() / 1000.0;
+        return elapsed_milliseconds() / 1000.0;
     }
-
-private:
-    std::chrono::time_point<std::chrono::system_clock> start_time;
-    std::chrono::time_point<std::chrono::system_clock> end_time;
-    bool is_running = false;
 };
 
 }

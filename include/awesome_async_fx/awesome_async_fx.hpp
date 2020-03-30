@@ -4,6 +4,5 @@
 #include "aafx_type/status.hpp"
 #include "active_object/active_object.hpp"
 #include "message/event_message.hpp"
-#include "observer/observer.hpp"
 
 #endif
