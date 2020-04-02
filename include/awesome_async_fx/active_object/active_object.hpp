@@ -5,6 +5,8 @@
 #include <chrono>
 #include <vector>
 #include <thread>
+#include <mutex>
+#include <condition_variable>
 #include <bits/shared_ptr.h>
 
 #include "./timer.hpp"
@@ -15,10 +17,12 @@ class active_object
 {
 private:
     static std::vector<std::shared_ptr<active_object>> obj_list;
-    std::thread        handler;
-    uint64_t           identifier;
-    bool               exit_flag;
-    std::vector<timer> timer_list;
+    std::thread             object_handler;
+    std::mutex              mtx_lock;
+    std::condition_variable cond_var;
+    uint64_t                identifier;
+    bool                    exit_flag;
+    std::vector<timer>      timer_list;
 
 public:
     active_object();
@@ -27,7 +31,8 @@ public:
 public:
     void open();
     void notify();
-
+private:
+    void run();
 
 public:
     void start_timer(uint64_t timer_id, std::chrono::seconds sec);
