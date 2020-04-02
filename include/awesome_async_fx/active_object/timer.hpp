@@ -40,9 +40,10 @@ public:
             this->end_time = this->end_time;
         }
         
-        return std::chrono::duration_cast<std::chrono::milliseconds>(
-            end_time - start_time
-        ).count();
+        return
+            std::chrono::duration_cast<std::chrono::milliseconds>(
+                end_time - start_time
+            ).count();
     }
     
     double elapsedSeconds()
