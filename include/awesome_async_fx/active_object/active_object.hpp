@@ -15,17 +15,19 @@ namespace _AASYNC_NAMESPACE_NAME
 {
 class active_object
 {
-private:
+protected:
     static std::vector<std::shared_ptr<active_object>> obj_list;
+
     std::thread             object_handler;
     std::mutex              mtx_lock;
     std::condition_variable cond_var;
-    uint64_t                identifier;
+    uint32_t                identifier;
     bool                    exit_flag;
     std::vector<timer>      timer_list;
 
 public:
     active_object();
+    active_object(uint32_t identifier);
     ~active_object();
 
 public:
