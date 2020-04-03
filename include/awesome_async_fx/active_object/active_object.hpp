@@ -2,8 +2,9 @@
 #define _AASYNC_ACTIVE_OBJECT_HPP_
 #include "../aasync_namespace.hpp"
 
-#include <chrono>
 #include <vector>
+#include <queue>
+#include <chrono>
 #include <thread>
 #include <mutex>
 #include <condition_variable>
@@ -34,7 +35,7 @@ public:
     void open();
     void notify();
 private:
-    void run();
+    // void run();
 
 public:
     void start_timer(uint64_t timer_id, std::chrono::seconds sec);

@@ -6,10 +6,17 @@
 namespace _AASYNC_NAMESPACE_NAME
 {
 
-enum status_type
+enum result_status
 {
-	SUCCESS = 1,
-	FAILED = 0
+	SUCCESS,
+	FAILED
+};
+
+enum active_object_status
+{
+	ENTERING,
+	WAITING,
+	RUNNING,
 };
 
 }

@@ -2,7 +2,7 @@
 #define _AASYNC_TIMER_HPP_
 #include "../aasync_namespace.hpp"
 
-#include <ctime>
+// #include <ctime>
 #include <chrono>
 
 namespace _AASYNC_NAMESPACE_NAME
